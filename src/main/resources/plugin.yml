@@ -1,0 +1,8 @@
+name: CityBuild
+version: 1.0.0
+main: eu.verium.citybuild.Main
+authors: [veqou, SpigotException]
+
+api-version: 1.19
+
+commands:
