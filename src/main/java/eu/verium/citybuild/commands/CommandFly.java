@@ -22,27 +22,7 @@
  * SOFTWARE.
  */
 
-package eu.verium.citybuild;
+package eu.verium.citybuild.commands;
 
-import org.bukkit.plugin.java.JavaPlugin;
-
-public class Main extends JavaPlugin {
-
-    private static Main plugin;
-
-    public static final String PREFIX = "§7» §bVerium §7| ";
-
-    @Override
-    public void onEnable() {
-        plugin = this;
-    }
-
-    @Override
-    public void onDisable() {
-
-    }
-
-    public static Main getPlugin() {
-        return plugin;
-    }
+public class CommandFly {
 }

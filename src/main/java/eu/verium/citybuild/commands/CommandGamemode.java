@@ -22,27 +22,24 @@
  * SOFTWARE.
  */
 
-package eu.verium.citybuild;
+package eu.verium.citybuild.commands;
 
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
-public class Main extends JavaPlugin {
+public class CommandGamemode implements CommandExecutor {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 
-    private static Main plugin;
+        if(sender instanceof Player) {
 
-    public static final String PREFIX = "§7» §bVerium §7| ";
+            Player player = (Player) sender;
 
-    @Override
-    public void onEnable() {
-        plugin = this;
-    }
 
-    @Override
-    public void onDisable() {
+        }
 
-    }
-
-    public static Main getPlugin() {
-        return plugin;
+        return false;
     }
 }
