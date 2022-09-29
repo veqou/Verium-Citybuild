@@ -25,47 +25,34 @@
 package eu.verium.citybuild.commands;
 
 import eu.verium.citybuild.Main;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.plugin.PluginManager;
 import org.jetbrains.annotations.NotNull;
 
-public class CommandFeed implements CommandExecutor {
+public class CommandDay implements CommandExecutor {
+    @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 
         if(sender instanceof Player) {
 
             Player player = (Player) sender;
 
-            if(args.length == 0) {
-                if(!player.hasPermission("citybuild.commands.feed")) {
-                    player.sendMessage(Main.PREFIX + "§cKeine Rechte!");
-                } else {
-                    player.setFoodLevel(20);
-                    player.sendMessage(Main.PREFIX + "§aDein Hunger wurde gestillt");
-                }
+            if(player.hasPermission("citybuild.commands.day")) {
 
+                if(args.length == 0) {
 
-            } else if(args.length == 1) {
-                if(!player.hasPermission("citybuild.commands.feed.other")) {
-                    player.sendMessage(Main.PREFIX + "§cKeine Rechte!");
-                } else {
-                    Player target = Bukkit.getPlayer(args[0]);
-                    if(target != null) {
-                        target.setFoodLevel(20);
-                        player.sendMessage(Main.PREFIX + "§aDer Hunger von §b" + target.getName() + " §awurde gestillt");
-                    } else
-                        player.sendMessage(Main.PREFIX + "§cDieser Spieler ist nicht online! ('" + args[0] + "§c')");
-                }
+                    player.getWorld().setFullTime(2000);
+                    player.sendMessage(Main.PREFIX + "§eDie Zeit wurde zu §3Day §egeändert");
 
-
-            } else
-                if(!player.hasPermission("citybuild.commands.feed")) {
-                    player.sendMessage(Main.PREFIX + "§cKeine Rechte!");
                 } else
-                    player.sendMessage(Main.PREFIX + "§cBenutze /feed <Spieler>");
+                    player.sendMessage(Main.PREFIX + "§cBenutze /day");
+            } else
+                player.sendMessage(Main.PREFIX + "§cKeine Rechte!");
+
         }
         return false;
     }

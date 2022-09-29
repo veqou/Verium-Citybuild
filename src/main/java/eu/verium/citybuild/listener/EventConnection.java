@@ -22,44 +22,22 @@
  * SOFTWARE.
  */
 
-package eu.verium.citybuild;
+package eu.verium.citybuild.listener;
 
-import eu.verium.citybuild.commands.CommandDay;
-import eu.verium.citybuild.commands.CommandFeed;
-import eu.verium.citybuild.commands.CommandHeal;
-import eu.verium.citybuild.commands.CommandNight;
-import eu.verium.citybuild.listener.EventConnection;
-import org.bukkit.Bukkit;
-import org.bukkit.command.CommandExecutor;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.plugin.PluginManager;
-import org.bukkit.plugin.java.JavaPlugin;
 
-public class Main extends JavaPlugin {
+public class EventConnection implements Listener {
 
-    private static Main plugin;
-
-    public static final String PREFIX = "§7» §bVerium §7| ";
-
-    @Override
-    public void onEnable() {
-        plugin = this;
-
-        getCommand("feed").setExecutor(new CommandFeed());
-        getCommand("heal").setExecutor(new CommandHeal());
-        getCommand("day").setExecutor(new CommandDay());
-        getCommand("night").setExecutor(new CommandNight());
-
-        PluginManager pluginManager = Bukkit.getPluginManager();
-        pluginManager.registerEvents(new EventConnection(), this);
+    @EventHandler
+    public void onJoin(PlayerJoinEvent event) {
+        event.setJoinMessage(null);
     }
 
-    @Override
-    public void onDisable() {
-
-    }
-
-    public static Main getPlugin() {
-        return plugin;
+    @EventHandler
+    public void onQuit(PlayerQuitEvent event) {
+        event.setQuitMessage(null);
     }
 }

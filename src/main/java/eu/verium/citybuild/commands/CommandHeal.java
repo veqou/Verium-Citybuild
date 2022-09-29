@@ -24,5 +24,50 @@
 
 package eu.verium.citybuild.commands;
 
-public class CommandHeal {
+import eu.verium.citybuild.Main;
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
+
+public class CommandHeal implements CommandExecutor {
+
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+
+        if(sender instanceof Player) {
+
+            Player player = (Player) sender;
+
+            if(args.length == 0) {
+                if(!player.hasPermission("citybuild.commands.heal")) {
+                    player.sendMessage(Main.PREFIX + "§cKeine Rechte!");
+                } else {
+                    player.setHealth(20);
+                    player.sendMessage(Main.PREFIX + "§aDu wurdest geheilt");
+                }
+
+
+            } else if(args.length == 1) {
+                if(!player.hasPermission("citybuild.commands.heal.other")) {
+                    player.sendMessage(Main.PREFIX + "§cKeine Rechte!");
+                } else {
+                    Player target = Bukkit.getPlayer(args[0]);
+                    if(target != null) {
+                        target.setHealth(20);
+                        player.sendMessage(Main.PREFIX + "§aDu hast §b" + target.getName() + "§a geheilt");
+                    } else
+                        player.sendMessage(Main.PREFIX + "§cDieser Spieler ist nicht online! ('" + args[0] + "§c')");
+                }
+
+
+            } else
+            if(!player.hasPermission("citybuild.commands.heal")) {
+                player.sendMessage(Main.PREFIX + "§cKeine Rechte!");
+            } else
+                player.sendMessage(Main.PREFIX + "§cBenutze /heal <Spieler>");
+        }
+        return false;
+    }
 }

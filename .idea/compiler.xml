@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Verium-Citybuild" target="1.5" />
+      <module name="Verium-Citybuild" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
