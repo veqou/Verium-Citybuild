@@ -44,6 +44,7 @@ public class CommandFeed implements CommandExecutor {
                     player.sendMessage(Main.PREFIX + "§cKeine Rechte!");
                 } else {
                     player.setFoodLevel(20);
+                    player.setSaturation(20);
                     player.sendMessage(Main.PREFIX + "§aDein Hunger wurde gestillt");
                 }
 
@@ -55,6 +56,7 @@ public class CommandFeed implements CommandExecutor {
                     Player target = Bukkit.getPlayer(args[0]);
                     if(target != null) {
                         target.setFoodLevel(20);
+                        target.setSaturation(20);
                         player.sendMessage(Main.PREFIX + "§aDer Hunger von §b" + target.getName() + " §awurde gestillt");
                     } else
                         player.sendMessage(Main.PREFIX + "§cDieser Spieler ist nicht online! ('" + args[0] + "§c')");
