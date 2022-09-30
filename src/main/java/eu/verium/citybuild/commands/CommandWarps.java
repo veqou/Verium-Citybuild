@@ -24,9 +24,15 @@
 
 package eu.verium.citybuild.commands;
 
+import eu.verium.citybuild.ItemBuilder;
+import eu.verium.citybuild.Main;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import org.jetbrains.annotations.NotNull;
 
 public class CommandWarps implements CommandExecutor {
@@ -34,7 +40,38 @@ public class CommandWarps implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
 
+        Inventory inv  = Bukkit.createInventory(null , 9*3 ,"§aWarps");
 
+        if(commandSender instanceof Player) {
+            Player player = (Player) commandSender;
+            if(strings.length == 0){
+
+                inv.setItem(0,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(1,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(2,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(3,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(4,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(5,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(6,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(7,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(8,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(9,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(17,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(18,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(19,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(20,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(21,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(22,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(23,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(24,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(25,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+                inv.setItem(26,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+
+
+                player.openInventory(inv);
+            }else player.sendMessage(Main.PREFIX + "§cBenutze /warps");
+
+        }
 
         return false;
     }
