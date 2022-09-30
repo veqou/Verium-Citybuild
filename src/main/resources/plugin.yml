@@ -12,3 +12,4 @@ commands:
   night:
   gm:
     aliases: [gamemode]
+  sun:

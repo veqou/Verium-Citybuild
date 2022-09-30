@@ -22,41 +22,20 @@
  * SOFTWARE.
  */
 
-package eu.verium.citybuild;
+package eu.verium.citybuild.commands;
 
-import eu.verium.citybuild.commands.*;
-import eu.verium.citybuild.listener.EventConnection;
-import org.bukkit.Bukkit;
-import org.bukkit.plugin.PluginManager;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 
-public class Main extends JavaPlugin {
-
-    private static Main plugin;
-
-    public static final String PREFIX = "§7» §bVerium §7| ";
+public class CommandWarps implements CommandExecutor {
 
     @Override
-    public void onEnable() {
-        plugin = this;
+    public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
 
-        getCommand("feed").setExecutor(new CommandFeed());
-        getCommand("heal").setExecutor(new CommandHeal());
-        getCommand("day").setExecutor(new CommandDay());
-        getCommand("night").setExecutor(new CommandNight());
-        getCommand("gm").setExecutor(new CommandGamemode());
-        getCommand("sun").setExecutor(new CommandSun());
 
-        PluginManager pluginManager = Bukkit.getPluginManager();
-        pluginManager.registerEvents(new EventConnection(), this);
-    }
 
-    @Override
-    public void onDisable() {
-
-    }
-
-    public static Main getPlugin() {
-        return plugin;
+        return false;
     }
 }
