@@ -9,3 +9,6 @@ commands:
   feed:
   heal:
   day:
+  night:
+  gm:
+    aliases: [gamemode]
