@@ -45,7 +45,7 @@ public class CommandHeal implements CommandExecutor {
                     player.sendMessage(Main.PREFIX + "§cKeine Rechte!");
                 } else {
                     player.setHealth(20);
-                    player.sendMessage(Main.PREFIX + "§aDu wurdest geheilt");
+                    player.sendMessage(Main.PREFIX + "§eDu wurdest geheilt");
                 }
 
 
@@ -56,7 +56,7 @@ public class CommandHeal implements CommandExecutor {
                     Player target = Bukkit.getPlayer(args[0]);
                     if(target != null) {
                         target.setHealth(20);
-                        player.sendMessage(Main.PREFIX + "§aDu hast §b" + target.getName() + "§a geheilt");
+                        player.sendMessage(Main.PREFIX + "§eDu hast §3" + target.getName() + "§e geheilt");
                     } else
                         player.sendMessage(Main.PREFIX + "§cDieser Spieler ist nicht online! ('" + args[0] + "§c')");
                 }

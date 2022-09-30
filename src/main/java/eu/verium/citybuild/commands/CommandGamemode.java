@@ -24,6 +24,9 @@
 
 package eu.verium.citybuild.commands;
 
+import eu.verium.citybuild.Main;
+import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -36,6 +39,86 @@ public class CommandGamemode implements CommandExecutor {
         if(sender instanceof Player) {
 
             Player player = (Player) sender;
+
+            if (player.hasPermission("citybuild.commands.gm")) {
+
+            if (args.length == 0) {
+
+                player.sendMessage(Main.PREFIX + "§eBenutze /gm <1,2,3>");
+
+            } else if (args.length == 1) {
+
+                if (player.hasPermission("citybuild.commands.gm")) {
+
+                    if (args[0].equalsIgnoreCase("0")) {
+
+                        player.setGameMode(GameMode.SURVIVAL);
+                        player.sendMessage(Main.PREFIX + "§eDu hast deinen GameMode zu §3Survival §egeändert");
+
+                    } else if (args[0].equalsIgnoreCase("1")) {
+
+                        player.setGameMode(GameMode.CREATIVE);
+                        player.sendMessage(Main.PREFIX + "§eDu hast deinen GameMode zu §3Creative §egeändert");
+
+                    } else if (args[0].equalsIgnoreCase("2")) {
+
+                        player.setGameMode(GameMode.ADVENTURE);
+                        player.sendMessage(Main.PREFIX + "§eDu hast deinen GameMode zu §3Adventure §egeändert");
+
+                    } else if (args[0].equalsIgnoreCase("3")) {
+
+                        player.setGameMode(GameMode.SPECTATOR);
+                        player.sendMessage(Main.PREFIX + "§eDu hast deinen GameMode zu §3Spectator §egeändert");
+
+                    } else
+
+                        player.sendMessage(Main.PREFIX + "§eBenutze /gm <1,2,3>");
+
+                } else
+                    player.sendMessage(Main.PREFIX + "§cKeine Rechte!");
+
+            } else if (args.length == 2) {
+
+                if (player.hasPermission("citybuild.commands.gm.other")) {
+
+                    Player target = Bukkit.getPlayer(args[1]);
+
+                    if (target != null) {
+
+                        if (args[0].equalsIgnoreCase("0")) {
+
+                            target.setGameMode(GameMode.SURVIVAL);
+                            player.sendMessage(Main.PREFIX + "§eDu hast deinen GameMode zu §3Survival §egeändert");
+
+                        } else if (args[0].equalsIgnoreCase("1")) {
+
+                            target.setGameMode(GameMode.CREATIVE);
+                            player.sendMessage(Main.PREFIX + "§eDu hast deinen GameMode zu §3Creative §egeändert");
+
+                        } else if (args[0].equalsIgnoreCase("2")) {
+
+                            target.setGameMode(GameMode.ADVENTURE);
+                            player.sendMessage(Main.PREFIX + "§eDu hast deinen GameMode zu §3Adventure §egeändert");
+
+                        } else if (args[0].equalsIgnoreCase("3")) {
+
+                            target.setGameMode(GameMode.SPECTATOR);
+                            player.sendMessage(Main.PREFIX + "§eDu hast deinen GameMode zu §3Spectator §egeändert");
+
+                        } else
+
+                            player.sendMessage(Main.PREFIX + "§eBenutze /gm <1,2,3>");
+
+                    } else
+                        player.sendMessage(Main.PREFIX + "§cDieser Spieler ist nicht online! ('" + args[1] + "§c')");
+
+
+                } else
+                    player.sendMessage(Main.PREFIX + "§cKeine Rechte!");
+            } else
+                player.sendMessage(Main.PREFIX + "§eBenutze /gm <1,2,3>");
+        }else
+                player.sendMessage(Main.PREFIX + "§cKeine Rechte!");
 
 
         }

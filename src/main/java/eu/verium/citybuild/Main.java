@@ -24,14 +24,9 @@
 
 package eu.verium.citybuild;
 
-import eu.verium.citybuild.commands.CommandDay;
-import eu.verium.citybuild.commands.CommandFeed;
-import eu.verium.citybuild.commands.CommandHeal;
-import eu.verium.citybuild.commands.CommandNight;
+import eu.verium.citybuild.commands.*;
 import eu.verium.citybuild.listener.EventConnection;
 import org.bukkit.Bukkit;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -49,6 +44,7 @@ public class Main extends JavaPlugin {
         getCommand("heal").setExecutor(new CommandHeal());
         getCommand("day").setExecutor(new CommandDay());
         getCommand("night").setExecutor(new CommandNight());
+        getCommand("gm").setExecutor(new CommandGamemode());
 
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new EventConnection(), this);

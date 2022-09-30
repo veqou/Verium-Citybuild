@@ -10,3 +10,5 @@ commands:
   heal:
   day:
   night:
+  gm:
+    aliases: [gamemode]

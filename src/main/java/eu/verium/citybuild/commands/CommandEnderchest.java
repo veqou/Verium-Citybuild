@@ -24,5 +24,38 @@
 
 package eu.verium.citybuild.commands;
 
-public class CommandEnderchest {
+import eu.verium.citybuild.Main;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
+
+public class CommandEnderchest implements CommandExecutor {
+    @Override
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+
+        if(sender instanceof Player) {
+
+            Player player = (Player) sender;
+
+            if(player.hasPermission("citybuild.commands.enderchest")) {
+
+                if(args.length == 0) {
+
+
+
+                } else if(args.length == 1) {
+
+
+
+                } else
+                    player.sendMessage(Main.PREFIX + "§eBenutze /ec");
+
+            }
+
+        }
+
+        return false;
+    }
 }
