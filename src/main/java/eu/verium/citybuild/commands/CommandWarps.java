@@ -32,10 +32,13 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.jetbrains.annotations.NotNull;
 
-public class CommandWarps implements CommandExecutor {
+public class CommandWarps implements CommandExecutor , Listener {
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
@@ -56,6 +59,10 @@ public class CommandWarps implements CommandExecutor {
                 inv.setItem(7,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
                 inv.setItem(8,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
                 inv.setItem(9,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
+
+                inv.setItem(11, new ItemBuilder().createItem(Material.NETHERRACK,  "§cNether"));
+                inv.setItem(13, new ItemBuilder().createItem(Material.NETHER_STAR,  "§eSpawn"));
+
                 inv.setItem(17,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
                 inv.setItem(18,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
                 inv.setItem(19,new ItemBuilder().createItem(Material.BLACK_STAINED_GLASS_PANE, "§1"));
@@ -74,5 +81,8 @@ public class CommandWarps implements CommandExecutor {
         }
 
         return false;
+    } @EventHandler
+    public void onClick(InventoryClickEvent event){
+
     }
 }
