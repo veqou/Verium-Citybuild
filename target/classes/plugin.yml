@@ -14,3 +14,4 @@ commands:
     aliases: [gamemode]
   sun:
   warps:
+  npc:

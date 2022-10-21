@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" build-on-make="true" name="CityBuild">
-    <output-path>$PROJECT_DIR$/../../1.19.2 test server/plugins</output-path>
+    <output-path>$PROJECT_DIR$/../../TestServer/plugins</output-path>
     <root id="archive" name="CityBuild.jar">
       <element id="module-output" name="Verium-Citybuild" />
       <element id="library" level="project" name="Maven: com.github.RDProjectOfficial:WaterCore:1.6" />

@@ -26,6 +26,7 @@ package eu.verium.citybuild;
 
 import eu.verium.citybuild.commands.*;
 import eu.verium.citybuild.listener.EventConnection;
+import eu.verium.citybuild.listener.EventNpcInteract;
 import eu.verium.citybuild.listener.InventoryClickEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
@@ -48,10 +49,12 @@ public class Main extends JavaPlugin {
         getCommand("gm").setExecutor(new CommandGamemode());
         getCommand("sun").setExecutor(new CommandSun());
         getCommand("warps").setExecutor(new CommandWarps());
+        getCommand("npc").setExecutor(new CommandNpc());
 
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new EventConnection(), this);
         pluginManager.registerEvents(new InventoryClickEvent(),this);
+        pluginManager.registerEvents(new EventNpcInteract(), this);
     }
 
     @Override
