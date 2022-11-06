@@ -24,12 +24,6 @@
 
 package eu.verium.citybuild;
 
-import eu.verium.citybuild.commands.*;
-import eu.verium.citybuild.listener.EventConnection;
-import eu.verium.citybuild.listener.EventNpcInteract;
-import eu.verium.citybuild.listener.InventoryClickEvent;
-import org.bukkit.Bukkit;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -42,6 +36,7 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         plugin = this;
 
+        /*
         getCommand("feed").setExecutor(new CommandFeed());
         getCommand("heal").setExecutor(new CommandHeal());
         getCommand("day").setExecutor(new CommandDay());
@@ -55,12 +50,10 @@ public class Main extends JavaPlugin {
         pluginManager.registerEvents(new EventConnection(), this);
         pluginManager.registerEvents(new InventoryClickEvent(),this);
         pluginManager.registerEvents(new EventNpcInteract(), this);
+
+         */
     }
 
-    @Override
-    public void onDisable() {
-
-    }
 
     public static Main getPlugin() {
         return plugin;

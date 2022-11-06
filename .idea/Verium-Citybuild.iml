@@ -32,7 +32,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.md-5:bungeecord-chat:1.16-R0.4" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.yaml:snakeyaml:1.30" level="project" />
     <orderEntry type="library" name="Maven: com.github.RDProjectOfficial:WaterCore:1.6" level="project" />
-    <orderEntry type="library" name="Maven: net.pretronic.dkcoins:dkcoins-api:1.20.3.280" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: de.dytanic.cloudnet:cloudnet-driver:3.4.5-RELEASE" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: de.dytanic.cloudnet:cloudnet-common:3.4.5-RELEASE" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-handler:4.1.73.Final" level="project" />
